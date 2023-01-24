@@ -1,7 +1,7 @@
-package br.com.sw2you.realmeet.unit.utils;
+package br.com.sw2you.realmeet.utils;
 
-import static br.com.sw2you.realmeet.unit.utils.TestConstants.DEFAULT_ROOM_NAME;
-import static br.com.sw2you.realmeet.unit.utils.TestConstants.DEFAULT_ROOM_SEATS;
+import static br.com.sw2you.realmeet.utils.TestConstants.DEFAULT_ROOM_NAME;
+import static br.com.sw2you.realmeet.utils.TestConstants.DEFAULT_ROOM_SEATS;
 
 import br.com.sw2you.realmeet.domains.entities.Room;
 

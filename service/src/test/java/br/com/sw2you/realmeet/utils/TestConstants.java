@@ -1,4 +1,4 @@
-package br.com.sw2you.realmeet.unit.utils;
+package br.com.sw2you.realmeet.utils;
 
 public final class TestConstants {
     public static final long DEFAULT_ROOM_ID = 1L;
