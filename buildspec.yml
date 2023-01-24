@@ -5,10 +5,10 @@ phases:
     runtime-versions:
       java: corretto17
       docker: 20
-  test:
+  pre_build:
     commands:
-      - echo Build started on `date`
-      - mvn test-compile org.pitest:pitest-maven:mutationCoverage
+      - echo Entered the pre_build phase...
+      - mvn test
   build:
     commands:
       - echo Build started on `date`
