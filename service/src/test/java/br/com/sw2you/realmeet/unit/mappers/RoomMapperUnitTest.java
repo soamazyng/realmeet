@@ -1,7 +1,7 @@
-package br.com.sw2you.realmeet.unit.helpers.mappers;
+package br.com.sw2you.realmeet.unit.mappers;
 
-import static br.com.sw2you.realmeet.unit.utils.TestConstants.DEFAULT_ROOM_ID;
-import static br.com.sw2you.realmeet.unit.utils.TestDataCreator.roomBuilder;
+import static br.com.sw2you.realmeet.utils.TestConstants.DEFAULT_ROOM_ID;
+import static br.com.sw2you.realmeet.utils.TestDataCreator.roomBuilder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.com.sw2you.realmeet.api.model.RoomDTO;
