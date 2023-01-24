@@ -5,13 +5,12 @@ phases:
     runtime-versions:
       java: corretto17
       docker: 20
-  test:
-    commands:
-      - echo Build started on `date`
-      - mvn test-compile org.pitest:pitest-maven:mutationCoverage
   build:
     commands:
       - echo Build started on `date`
+      - echo Run tests
+      - mvn test-compile org.pitest:pitest-maven:mutationCoverage
+      - echo Clean Package
       - mvn clean package
 
 artifacts:
