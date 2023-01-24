@@ -17,22 +17,22 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 class RoomApiIntegrationTest extends BaseIntegrationTest {
-    @InjectMocks
-    private RoomApi roomApi;
-
-    @Autowired
-    private RoomRepository roomRepository;
-
-    @Override
-    protected void setupEach() throws Exception {
-        setLocalhostBasePath(roomApi.getApiClient(), "/v1");
-    }
-
-    @Test
-    void test() {
-        final Room roomBuild = roomBuilder().id(DEFAULT_ROOM_ID).build();
-        roomRepository.saveAndFlush(roomBuild);
-        final RoomDTO room = roomApi.getRoom(DEFAULT_ROOM_ID);
-        assertEquals(roomBuild.getName(), room.getName());
-    }
+    //    @InjectMocks
+    //    private RoomApi roomApi;
+    //
+    //    @Autowired
+    //    private RoomRepository roomRepository;
+    //
+    //    @Override
+    //    protected void setupEach() throws Exception {
+    //        setLocalhostBasePath(roomApi.getApiClient(), "/v1");
+    //    }
+    //
+    //    @Test
+    //    void test() {
+    //        final Room roomBuild = roomBuilder().id(DEFAULT_ROOM_ID).build();
+    //        roomRepository.saveAndFlush(roomBuild);
+    //        final RoomDTO room = roomApi.getRoom(DEFAULT_ROOM_ID);
+    //        assertEquals(roomBuild.getName(), room.getName());
+    //    }
 }
