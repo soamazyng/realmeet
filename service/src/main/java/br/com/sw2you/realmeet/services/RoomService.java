@@ -17,18 +17,18 @@ public class RoomService {
 
     private final RoomMapper roomMapper;
 
-    //private static final Logger logger = LoggerFactory.getLogger(RoomService.class);
+    //    private static final Logger logger = LoggerFactory.getLogger(RoomService.class);
 
     public RoomDTO findById(Long id) {
         requireNonNull(id);
 
         final Room room = roomRepository
-            .findById(id)
+            .findByIdAndActive(id, true)
             .orElseThrow(() -> new RoomNotFoundException(String.format("Room %s not found", id)));
 
         RoomDTO roomDTO = roomMapper.fromEntityToDto(room);
 
-        //logger.info("Sucesso em obter os dados do Room Id: {} - retornando o objeto: {}", id, roomDTO);
+        //        logger.info("Sucesso em obter os dados do Room Id: {} - retornando o objeto: {}", id, roomDTO);
 
         return roomDTO;
     }
