@@ -5,7 +5,6 @@ import static br.com.sw2you.realmeet.utils.TestDataCreator.roomBuilder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 import br.com.sw2you.realmeet.api.model.RoomDTO;
@@ -35,9 +34,10 @@ class RoomServiceTest {
 
     @Test
     void shouldReturnId() {
-        when(roomRepository.findById(anyLong())).thenReturn(Optional.of(roomBuilder().id(DEFAULT_ROOM_ID).build()));
+        when(roomRepository.findByIdAndActive(DEFAULT_ROOM_ID, true))
+            .thenReturn(Optional.of(roomBuilder().id(DEFAULT_ROOM_ID).build()));
 
-        final RoomDTO response = victim.findById(anyLong());
+        final RoomDTO response = victim.findById(DEFAULT_ROOM_ID);
 
         assertNotNull(response);
         assertEquals(DEFAULT_ROOM_ID, response.getId());
@@ -46,8 +46,8 @@ class RoomServiceTest {
 
     @Test
     void testRoomNotFoundException() {
-        RoomNotFoundException exception = assertThrows(RoomNotFoundException.class, () -> victim.findById(1L), "");
+        when(roomRepository.findByIdAndActive(DEFAULT_ROOM_ID, true)).thenReturn(Optional.empty());
 
-        assertNotNull(exception.getMessage());
+        assertThrows(RoomNotFoundException.class, () -> victim.findById(DEFAULT_ROOM_ID));
     }
 }
