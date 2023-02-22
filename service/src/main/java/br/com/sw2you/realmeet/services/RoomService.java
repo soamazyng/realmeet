@@ -2,6 +2,7 @@ package br.com.sw2you.realmeet.services;
 
 import static java.util.Objects.requireNonNull;
 
+import br.com.sw2you.realmeet.api.model.CreateRoomDTO;
 import br.com.sw2you.realmeet.api.model.RoomDTO;
 import br.com.sw2you.realmeet.domains.entities.Room;
 import br.com.sw2you.realmeet.domains.repositories.RoomRepository;
@@ -33,5 +34,13 @@ public class RoomService {
         logger.info("Sucesso em obter os dados do Room Id: {} - retornando o objeto: {}", id, roomDTO);
 
         return roomDTO;
+    }
+
+    public RoomDTO createRoom(CreateRoomDTO createRoomDTO) {
+        var room = roomMapper.fromCreateDtoToEntity(createRoomDTO);
+
+        roomRepository.save(room);
+
+        return roomMapper.fromEntityToDto(room);
     }
 }
