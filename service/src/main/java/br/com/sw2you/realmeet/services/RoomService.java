@@ -8,6 +8,8 @@ import br.com.sw2you.realmeet.domains.repositories.RoomRepository;
 import br.com.sw2you.realmeet.exceptions.RoomNotFoundException;
 import br.com.sw2you.realmeet.helpers.mappers.RoomMapper;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +19,7 @@ public class RoomService {
 
     private final RoomMapper roomMapper;
 
-    //    private static final Logger logger = LoggerFactory.getLogger(RoomService.class);
+    private static final Logger logger = LoggerFactory.getLogger(RoomService.class);
 
     public RoomDTO findById(Long id) {
         requireNonNull(id);
@@ -28,7 +30,7 @@ public class RoomService {
 
         RoomDTO roomDTO = roomMapper.fromEntityToDto(room);
 
-        //        logger.info("Sucesso em obter os dados do Room Id: {} - retornando o objeto: {}", id, roomDTO);
+        logger.info("Sucesso em obter os dados do Room Id: {} - retornando o objeto: {}", id, roomDTO);
 
         return roomDTO;
     }
