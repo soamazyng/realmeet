@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RoomController implements RoomsApi {
     private final Executor controllerExecutor;
     private final RoomService roomService;
-
     private static final Logger logger = LoggerFactory.getLogger(RoomController.class);
 
     @Override
